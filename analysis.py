@@ -12,10 +12,12 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
 
+query=str(input("Enter query you wish to search for: "))
+
 csvFile = open('tweets.csv', 'w')
 csvWriter = csv.writer(csvFile)
 
-for item in tweepy.Cursor(api.search,q="Modi").items():
+for item in tweepy.Cursor(api.search,q=query).items():
     #print(item.created_at, item.text)
     sentiment_overall=TextBlob(item.text)
     csvWriter.writerow([item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity])
