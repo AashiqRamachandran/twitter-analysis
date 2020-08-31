@@ -17,6 +17,7 @@ query=str(input("Enter query you wish to search for: "))
 csvFile = open('tweets.csv', 'w')
 csvWriter = csv.writer(csvFile)
 
+csvWriter.writerow(['User screen name', 'Tweet text', 'Tweet sentiment', 'Tweet subjectivity'])
 for item in tweepy.Cursor(api.search,q=query).items():
     #print(item.created_at, item.text)
     sentiment_overall=TextBlob(item.text)
