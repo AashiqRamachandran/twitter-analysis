@@ -25,3 +25,4 @@ for item in tweepy.Cursor(api.search,q=query).items(number):
     #print(item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity)
     print("Hey, I'm collecting the data right now, click on the file icon on the left panel. Open twitter analysis folder. Download the CSV file!")
     csvWriter.writerow([item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity])
+print("Happy to assist. hasta la vista")
