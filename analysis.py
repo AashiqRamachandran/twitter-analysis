@@ -13,13 +13,15 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
 
 query=str(input("Enter query you wish to search for: "))
+number=int(input("Enter the number of tweets you want to query. 1-100,000"))
 
 csvFile = open('tweets.csv', 'w')
 csvWriter = csv.writer(csvFile)
 
 csvWriter.writerow(['User screen name', 'Tweet text', 'Tweet sentiment', 'Tweet subjectivity'])#initializes row headings
 
-for item in tweepy.Cursor(api.search,q=query).items():
+for item in tweepy.Cursor(api.search,q=query).items(number):
     sentiment_overall=TextBlob(item.text)
-    print(item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity)
+    #print(item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity)
+    print("Hey, I'm collecting the data right now, click on the file icon on the left panel. Open twitter analysis folder. Download the CSV file!")
     csvWriter.writerow([item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity])
