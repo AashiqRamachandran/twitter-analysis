@@ -20,6 +20,6 @@ csvWriter = csv.writer(csvFile)
 csvWriter.writerow(['User screen name', 'Tweet text', 'Tweet sentiment', 'Tweet subjectivity'])#initializes row headings
 
 for item in tweepy.Cursor(api.search,q=query).items():
-    #print(item.created_at, item.text)
     sentiment_overall=TextBlob(item.text)
+    print(item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity)
     csvWriter.writerow([item.user.screen_name, item.text, sentiment_overall.sentiment.polarity, sentiment_overall.sentiment.subjectivity])
