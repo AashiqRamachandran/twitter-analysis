@@ -1,6 +1,9 @@
 import tweepy
 import csv
 from textblob import TextBlob
+import os
+
+clear_dump='clear'
 
 #tokens initialized
 consumer_key = 'IUK4LzRRBjNZSPse0Yrh0ASzs'
@@ -14,6 +17,8 @@ api = tweepy.API(auth,wait_on_rate_limit=True)
 
 added_sentiment=0
 added_subjectivity=0
+
+os.system(clear_dump)
 
 query=str(input("Enter query you wish to search for: "))
 number=int(input("Enter the number of tweets you want to query. 1-100,000"))
