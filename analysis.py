@@ -34,6 +34,6 @@ for item in tweepy.Cursor(api.search,q=query).items(number):
 
 added_sentiment=added_sentiment/number
 added_subjectivity=added_subjectivity/number
-print("Summary: Number of tweets searched: "+str(number)+"\n Average sentiment is: "+str(added_sentiment)+"\n Average subjectivity is: "+str(added_subjectivity)")
+print("Summary: Number of tweets searched: "+str(number)+"\n Average sentiment is: "+str(added_sentiment)+"\n Average subjectivity is: "+str(added_subjectivity))
 print("I'm done, check the left panel now")
 print("Happy to assist. hasta la vista")
